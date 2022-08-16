@@ -5,12 +5,12 @@ import axios from 'axios';
 let PAGE_COUNTER = 1;
 
 //Export basic logic to work with API
-export default async function getUser(searchQ) {
+export default async function getUser(search) {
   try {
     const BASE_URL = `https://pixabay.com/api/`;
     const searchParams = new URLSearchParams({
-      key: '28712886-1cb23b606877bc8498f4e16b7',
-      q: `${searchQ}`,
+      key: '29306841-b1a7c1605907e307c246cc444',
+      q: `${search}`,
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: 'true',
@@ -28,7 +28,6 @@ export default async function getUser(searchQ) {
   }
 }
 
-//Export for function to reset PAGE_COUNTER
 export const resetPage = () => {
   PAGE_COUNTER = 1;
 };

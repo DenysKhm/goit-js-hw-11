@@ -1,2 +1,70 @@
 @import './common';
 @import './example';
+
+.search-form {
+  background-color: rgb(66, 126, 65);
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 15px;
+  padding-inline: 15px;
+  margin-top: 30px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 75%;
+}
+
+.img-card {
+  width: calc((100% - 15px * 3) / 4);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+}
+.about {
+  display: flex;
+  text-align: center;
+  border-inline: 1px solid grey;
+  border-bottom: 1px solid grey;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+.about-item {
+  margin-bottom: 10px;
+}
+.load-more {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-inline: 5px;
+  border: none;
+  display: block;
+  margin-inline: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.load-more:active {
+  background-color: rgb(66, 126, 65);
+}
+.load-more.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
