@@ -55,7 +55,7 @@ searchForm.addEventListener('submit', async e => {
     await getMarkup();
     lightboxRefresh();
     smoothScroll();
-    infiniteScroll();
+    infiniteListener();
   }
 });
 
@@ -78,7 +78,9 @@ function lightboxRefresh() {
 async function getMarkup() {
   try {
     const response = await getUser(searchText);
-
+    if (!response) {
+      throw new Error('mistake');
+    }
     if (response.data.hits.length < 40) {
       window.removeEventListener('scroll', infiniteTrottle);
     }
@@ -86,12 +88,9 @@ async function getMarkup() {
     const preparation = prepareMarkup(response);
     createMarkup(preparation, galleryDiv);
   } catch (error) {
+    window.removeEventListener('scroll', infiniteTrottle);
     throw new Error(error);
   }
-}
-
-function infiniteScroll() {
-  setTimeout(infiniteListener, 1000);
 }
 
 function infiniteListener() {
